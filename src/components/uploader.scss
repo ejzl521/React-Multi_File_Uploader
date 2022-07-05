@@ -1,0 +1,49 @@
+.uploader-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .file-container{
+    width: 500px;
+    height: 250px;
+    padding: 16px;
+    margin: 32px 0;
+    border: 1px solid slateblue;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    // 넘치면 스크롤
+    overflow: auto;
+    .file-wrapper{
+      position: relative;
+      // 사진이 줄어드는 것 방지
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      margin: 0 10px;
+      // hover할 때 delete-button이 보이고 사용 클릭 가능한 상태로 변경
+      &:hover{
+        .delete-button{
+          opacity: 1;
+          z-index: 1;
+        }
+      }
+      img, video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .delete-button{
+        // 부모 우측 상단에 고정하기 위해 absolute사용
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        // 맨 처음엔 보이지도 않고 클릭할 수도 없게 만듬
+        opacity: 0;
+        z-index: 0;
+      }
+    }
+  }
+
+}
